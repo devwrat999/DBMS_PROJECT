@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueryMorph | RA to SQL Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Load the Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>🏛️ QueryMorph</h1>
+        <!-- <p>Relational Algebra → SQL Optimizer</p> -->
+    </header>
+
+    <main>
+        <!-- Card for Input -->
+        <div class="card" id="input-card">
+            <form id="ra-form">
+                <label for="ra-input">💬 Enter your Relational Algebra Expression:</label>
+                <!-- The default text inside this textarea has been removed -->
+                <textarea id="ra-input" rows="8" spellcheck="false"></textarea>
+                
+                <button type="submit" id="convert-btn">
+                    ▶ Convert to SQL
+                </button>
+            </form>
+        </div>
+
+        <!-- Notification banner (hidden by default) -->
+        <div id="notification"></div>
+
+        <!-- Card for Output -->
+        <div class="card" id="output-card">
+            <div class="output-header">
+                <h2>⚙️ Generated SQL Query:</h2>
+            </div>
+            
+            <!-- The default text inside this code block has been removed -->
+            <pre><code id="sql-output"></code></pre>
+        </div>
+
+    </main>
+
+    <!-- Link the JavaScript logic (unchanged) -->
+    <script src="script.js"></script>
+</body>
+</html>

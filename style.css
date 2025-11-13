@@ -1,0 +1,195 @@
+/* --- Global Styles & Resets --- */
+:root {
+    --bg-dark: #121212;
+    --bg-card: #1e1e1e;
+    --bg-input: #121212; /* Sinks the input into the card */
+    --text: #f0f0f0;
+    --text-dark: #a0a0a0;
+    --border: #3c3c3c;
+    
+    /* New Vibrant Theme Colors */
+    --primary: #6a11cb;
+    --secondary: #2575fc;
+    --primary-gradient: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    
+    /* Notification Colors */
+    --success-bg: #1c4a1c;
+    --success-text: #3dc73d;
+    --error-bg: #4a1c1c;
+    --error-text: #e74c3c;
+    
+    /* SQL Highlight Colors (Unchanged) */
+    --sql-keyword: #569cd6;
+    --sql-literal: #c586c0;
+    
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-dark);
+    color: var(--text);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- Header --- */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    /* Gradient Text! */
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    padding-bottom: 5px;
+}
+
+header p {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 20px;
+}
+
+/* --- Main Content --- */
+main {
+    width: 100%;
+    max-width: 800px;
+}
+
+/* New Card Layout */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#ra-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#ra-form label,
+.output-header h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+textarea,
+pre {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    background-color: var(--bg-input); /* Darker than card */
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea:focus {
+    border-color: var(--primary); /* Vibrant focus */
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.3);
+}
+
+button#convert-btn {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 700; /* Bolder */
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 20px; /* Bigger button */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button#convert-btn:hover {
+    transform: translateY(-2px); /* Lifts up */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+button#convert-btn:disabled {
+    background: var(--border);
+    cursor: not-allowed;
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* --- Notification Banner --- */
+#notification {
+    display: none; /* Hidden by default */
+    font-weight: 500;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 0 0 25px 0;
+    text-align: center;
+}
+
+#notification.success {
+    display: block;
+    background-color: var(--success-bg);
+    color: var(--success-text);
+}
+
+#notification.error {
+    display: block;
+    background-color: var(--error-bg);
+    color: var(--error-text);
+}
+
+/* --- Output Area --- */
+.output-header {
+    margin-bottom: 10px;
+}
+
+pre {
+    overflow-x: auto;
+    min-height: 100px;
+}
+
+code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* --- SQL Syntax Highlighting --- */
+.sql-keyword {
+    color: var(--sql-keyword);
+    font-weight: 500;
+}
+.sql-literal {
+    color: var(--sql-literal);
+}
